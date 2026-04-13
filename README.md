@@ -233,7 +233,7 @@ OpenAQ Public Network ───┘
 
 ```bash
 # Clone the repository
-git clone https://github.com/Veera2006/Resonance-Hackathon---Team-Spectre.git
+git clone https://github.com/sanchit-borikar/Carbon-accountability-platform-SV.git
 
 # Install dependencies
 cd vayudrishti
