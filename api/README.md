@@ -229,14 +229,17 @@ OpenAQ Public Network ───┘
 
 ```bash
 # Clone the repository
-git clone https://github.com/Veera2006/Resonance-Hackathon---Team-Spectre.git
+git clone https://github.com/sanchit-borikar/Carbon-accountability-platform-SV.git
+cd Carbon-accountability-platform-SV
 
-# Install dependencies
-cd vayudrishti
+# Run frontend
+cd frontend
 npm install
-
-# Start development server
 npm run dev
+
+# In a second terminal (from repo root), run backend + pipeline
+cd ..
+docker compose up -d --build
 ```
 
 ---
