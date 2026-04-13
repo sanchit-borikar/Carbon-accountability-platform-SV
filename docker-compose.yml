@@ -148,11 +148,11 @@ services:
       kafka:
         condition: service_healthy
     volumes:
-      - ./demo_cpcb.py:/app/demo_cpcb.py
-      - ./demo_cities.py:/app/demo_cities.py
+      - ./cpcb.py:/app/cpcb.py
+      - ./cities.py:/app/cities.py
       - ./data_ingestion:/app/data_ingestion
       - ./vayu_logger.py:/app/vayu_logger.py
-    command: ["python", "-u", "demo_cpcb.py"]
+    command: ["python", "-u", "cpcb.py"]
     restart: unless-stopped
 
   demo-iot:
@@ -173,11 +173,11 @@ services:
       kafka:
         condition: service_healthy
     volumes:
-      - ./demo_iot.py:/app/demo_iot.py
-      - ./demo_cities.py:/app/demo_cities.py
+      - ./iot.py:/app/iot.py
+      - ./cities.py:/app/cities.py
       - ./data_ingestion:/app/data_ingestion
       - ./vayu_logger.py:/app/vayu_logger.py
-    command: ["python", "-u", "demo_iot.py"]
+    command: ["python", "-u", "iot.py"]
     restart: unless-stopped
 
   demo-nasa:
@@ -198,11 +198,11 @@ services:
       kafka:
         condition: service_healthy
     volumes:
-      - ./demo_nasa.py:/app/demo_nasa.py
-      - ./demo_cities.py:/app/demo_cities.py
+      - ./nasa.py:/app/nasa.py
+      - ./cities.py:/app/cities.py
       - ./data_ingestion:/app/data_ingestion
       - ./vayu_logger.py:/app/vayu_logger.py
-    command: ["python", "-u", "demo_nasa.py"]
+    command: ["python", "-u", "nasa.py"]
     restart: unless-stopped
 
   demo-satellite:
@@ -223,11 +223,11 @@ services:
       kafka:
         condition: service_healthy
     volumes:
-      - ./demo_satellite.py:/app/demo_satellite.py
-      - ./demo_cities.py:/app/demo_cities.py
+      - ./satellite.py:/app/satellite.py
+      - ./cities.py:/app/cities.py
       - ./data_ingestion:/app/data_ingestion
       - ./vayu_logger.py:/app/vayu_logger.py
-    command: ["python", "-u", "demo_satellite.py"]
+    command: ["python", "-u", "satellite.py"]
     restart: unless-stopped
 
 volumes:

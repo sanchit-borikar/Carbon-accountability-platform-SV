@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from vayu_logger import (banner, section, section_end, info, success,
                          warn, processed, kafka_sent, anomaly, ml_result,
                          print_sources_table, C, ist)
-from demo_cities import CITIES_ALL
+from cities import CITIES_ALL
 
 DB = dict(host=os.getenv("DB_HOST","localhost"), port=os.getenv("DB_PORT","5432"),
           dbname=os.getenv("DB_NAME","vayu_drishti"), user=os.getenv("DB_USER","postgres"),
