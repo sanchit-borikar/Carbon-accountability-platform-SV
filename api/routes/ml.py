@@ -118,7 +118,8 @@ def get_sector_breakdown(
             END AS sector,
             SUM(co2_equivalent)::float AS total_co2e,
             COUNT(*)::int AS records,
-            AVG(compliance_score)::float AS avg_score
+            AVG(compliance_score)::float AS avg_score,
+            COUNT(DISTINCT CASE WHEN exceeds_who THEN city END)::int AS who_breaches
         FROM emission_records
         WHERE sector IS NOT NULL
         GROUP BY 1

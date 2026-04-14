@@ -1,0 +1,51 @@
+# ============================================================
+# Stage 1: Build dependencies (cached aggressively)
+# ============================================================
+FROM python:3.12-bookworm AS builder
+
+WORKDIR /build
+
+# System-level build deps for psycopg2, confluent-kafka, prophet
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc g++ libpq-dev librdkafka-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements first for layer caching
+COPY requirements.txt .
+
+# Install CPU-only PyTorch first (200MB vs 2GB CUDA version),
+# then remaining deps -- pip skips torch since already installed
+RUN pip install --no-cache-dir \
+    torch==2.3.0+cpu --index-url https://download.pytorch.org/whl/cpu \
+ && pip install --no-cache-dir -r requirements.txt
+
+# ============================================================
+# Stage 2: Runtime image (no build tools)
+# ============================================================
+FROM python:3.12-slim-bookworm
+
+WORKDIR /app
+
+# Runtime-only system deps
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libpq5 librdkafka1 curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy installed Python packages from builder
+COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+COPY --from=builder /usr/local/bin /usr/local/bin
+
+# Copy application source
+COPY api/ ./api/
+COPY ml/ ./ml/
+COPY processing/ ./processing/
+COPY data_ingestion/ ./data_ingestion/
+COPY blockchain/ ./blockchain/
+COPY vayu_logger.py .
+
+EXPOSE 8000
+
+HEALTHCHECK --interval=15s --timeout=5s --start-period=20s --retries=3 \
+    CMD curl -f http://localhost:8000/health || exit 1
+
+CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]

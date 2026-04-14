@@ -1,6 +1,5 @@
-version: "3.8"
-
 services:
+  # ── Infrastructure ─────────────────────────────
   zookeeper:
     image: confluentinc/cp-zookeeper:7.5.0
     container_name: vayudrishti-zookeeper
@@ -9,31 +8,49 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
+      KAFKA_OPTS: "-Dzookeeper.4lw.commands.whitelist=ruok,stat"
+    healthcheck:
+      test: ["CMD-SHELL", "echo ruok | nc localhost 2181"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
 
   kafka:
     image: confluentinc/cp-kafka:7.5.0
     container_name: vayudrishti-kafka
     depends_on:
-      - zookeeper
+      zookeeper:
+        condition: service_healthy
     ports:
       - "9092:9092"
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
+      KAFKA_LISTENERS: INTERNAL://0.0.0.0:29092,EXTERNAL://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:29092,EXTERNAL://localhost:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+    healthcheck:
+      test: ["CMD", "kafka-broker-api-versions", "--bootstrap-server", "localhost:9092"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
 
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
     container_name: vayudrishti-kafka-ui
     depends_on:
-      - kafka
+      kafka:
+        condition: service_healthy
     ports:
       - "8080:8080"
     environment:
       KAFKA_CLUSTERS_0_NAME: vayudrishti
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
       KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
 
   postgres:
@@ -47,6 +64,189 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d vayu_drishti"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # ── Application ────────────────────────────────
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: vayudrishti-backend
+    ports:
+      - "8000:8000"
+    environment:
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_NAME: vayu_drishti
+      DB_USER: postgres
+      DB_PASSWORD: vayu2026
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    volumes:
+      - ./api:/app/api
+      - ./ml:/app/ml
+      - ./processing:/app/processing
+      - ./data_ingestion:/app/data_ingestion
+      - ./blockchain:/app/blockchain
+      - ./vayu_logger.py:/app/vayu_logger.py
+    command: ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload", "--reload-dir", "/app/api"]
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: dev
+    container_name: vayudrishti-frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+      - ./frontend/index.html:/app/index.html
+      - ./frontend/vite.config.ts:/app/vite.config.ts
+      - ./frontend/tailwind.config.ts:/app/tailwind.config.ts
+      - ./frontend/postcss.config.js:/app/postcss.config.js
+      - ./frontend/tsconfig.json:/app/tsconfig.json
+      - ./frontend/tsconfig.app.json:/app/tsconfig.app.json
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  # ── Data Ingestion Pipeline ─────────────────────
+  consumer:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: vayudrishti-consumer
+    environment:
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_NAME: vayu_drishti
+      DB_USER: postgres
+      DB_PASSWORD: vayu2026
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    volumes:
+      - ./processing:/app/processing
+      - ./vayu_logger.py:/app/vayu_logger.py
+    command: ["python", "-u", "processing/kafka_consumer.py"]
+    restart: unless-stopped
+
+  demo-cpcb:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: vayudrishti-demo-cpcb
+    environment:
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_NAME: vayu_drishti
+      DB_USER: postgres
+      DB_PASSWORD: vayu2026
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    volumes:
+      - ./demo_cpcb.py:/app/demo_cpcb.py
+      - ./demo_cities.py:/app/demo_cities.py
+      - ./data_ingestion:/app/data_ingestion
+      - ./vayu_logger.py:/app/vayu_logger.py
+    command: ["python", "-u", "demo_cpcb.py"]
+    restart: unless-stopped
+
+  demo-iot:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: vayudrishti-demo-iot
+    environment:
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_NAME: vayu_drishti
+      DB_USER: postgres
+      DB_PASSWORD: vayu2026
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    volumes:
+      - ./demo_iot.py:/app/demo_iot.py
+      - ./demo_cities.py:/app/demo_cities.py
+      - ./data_ingestion:/app/data_ingestion
+      - ./vayu_logger.py:/app/vayu_logger.py
+    command: ["python", "-u", "demo_iot.py"]
+    restart: unless-stopped
+
+  demo-nasa:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: vayudrishti-demo-nasa
+    environment:
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_NAME: vayu_drishti
+      DB_USER: postgres
+      DB_PASSWORD: vayu2026
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    volumes:
+      - ./demo_nasa.py:/app/demo_nasa.py
+      - ./demo_cities.py:/app/demo_cities.py
+      - ./data_ingestion:/app/data_ingestion
+      - ./vayu_logger.py:/app/vayu_logger.py
+    command: ["python", "-u", "demo_nasa.py"]
+    restart: unless-stopped
+
+  demo-satellite:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: vayudrishti-demo-satellite
+    environment:
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_NAME: vayu_drishti
+      DB_USER: postgres
+      DB_PASSWORD: vayu2026
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    volumes:
+      - ./demo_satellite.py:/app/demo_satellite.py
+      - ./demo_cities.py:/app/demo_cities.py
+      - ./data_ingestion:/app/data_ingestion
+      - ./vayu_logger.py:/app/vayu_logger.py
+    command: ["python", "-u", "demo_satellite.py"]
     restart: unless-stopped
 
 volumes:

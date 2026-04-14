@@ -25,8 +25,10 @@ function getGlow(score: number, co2e: number) {
 /* px → meters approximation at India latitudes (~zoom 5) */
 const PX_TO_M = 2500;
 
-type LayerMode = "markers" | "heatmap" | "both";
+type LayerMode = "markers" | "heatmap" | "both" | "wind";
 type DataFilter = "all" | "verified" | "self-reported";
+
+const WINDY_API_KEY = "JdmzB4bSE9HxNQOOKw8tqfyp23HTxORM";
 
 export default function LiveMapPage() {
   const { markers: companies, loading: mapLoading, lastUpdate: mapLastUpdate } = useMapData();
@@ -81,28 +83,37 @@ export default function LiveMapPage() {
         <div className="bg-card border-b border-dash-border px-4 py-2.5 flex items-center justify-between gap-3 flex-wrap">
           {/* Left: sector pills + layer toggle + data toggle */}
           <div className="flex items-center gap-3 flex-wrap">
-            {/* Sector pills */}
-            <div className="flex gap-1.5">
-              {["All", "Industrial", "Transport", "Energy"].map((s) => (
-                <div key={s} className={`px-3 py-1.5 rounded-full text-xs font-semibold cursor-pointer transition-all ${sectorFilter === s ? "btn-primary-gradient" : "btn-secondary-outline"}`} onClick={() => setSectorFilter(s)}>
-                  {s === "Industrial" ? "🏭 " : s === "Transport" ? "🚗 " : s === "Energy" ? "⚡ " : ""}{s}
+            {/* Sector pills - hide in wind mode */}
+            {layerMode !== "wind" && (
+              <>
+                <div className="flex gap-1.5">
+                  {["All", "Industrial", "Transport", "Energy"].map((s) => (
+                    <div key={s} className={`px-3 py-1.5 rounded-full text-xs font-semibold cursor-pointer transition-all ${sectorFilter === s ? "btn-primary-gradient" : "btn-secondary-outline"}`} onClick={() => setSectorFilter(s)}>
+                      {s === "Industrial" ? "🏭 " : s === "Transport" ? "🚗 " : s === "Energy" ? "⚡ " : ""}{s}
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
 
-            {/* Divider */}
-            <div className="w-px h-6 bg-[#e2e8f0]" />
+                {/* Divider */}
+                <div className="w-px h-6 bg-[#e2e8f0]" />
+              </>
+            )}
 
             {/* Layer toggle */}
             <Seg value={layerMode} onChange={(k) => setLayerMode(k as LayerMode)}
-              options={[{ key: "markers", label: "📍 Markers" }, { key: "heatmap", label: "🌡️ Heatmap" }, { key: "both", label: "⊕ Both" }]} />
+              options={[{ key: "markers", label: "📍 Markers" }, { key: "heatmap", label: "🌡️ Heatmap" }, { key: "both", label: "⊕ Both" }, { key: "wind", label: "💨 Wind" }]} />
 
-            {/* Divider */}
-            <div className="w-px h-6 bg-[#e2e8f0]" />
+            {/* Data filter - hide in wind mode */}
+            {layerMode !== "wind" && (
+              <>
+                {/* Divider */}
+                <div className="w-px h-6 bg-[#e2e8f0]" />
 
-            {/* Data filter */}
-            <Seg value={dataFilter} onChange={(k) => setDataFilter(k as DataFilter)}
-              options={[{ key: "all", label: "✓ All Data" }, { key: "verified", label: "🛰️ Verified Only" }, { key: "self-reported", label: "📋 Self-Reported" }]} />
+                {/* Data filter */}
+                <Seg value={dataFilter} onChange={(k) => setDataFilter(k as DataFilter)}
+                  options={[{ key: "all", label: "✓ All Data" }, { key: "verified", label: "🛰️ Verified Only" }, { key: "self-reported", label: "📋 Self-Reported" }]} />
+              </>
+            )}
           </div>
 
           {/* Right: live indicator + filtered count */}
@@ -124,9 +135,38 @@ export default function LiveMapPage() {
 
         {/* Map */}
         <div className="flex-1 relative">
-          <MapContainer center={[20.5, 78.9]} zoom={5} style={{ height: "100%", width: "100%" }} scrollWheelZoom={true} zoomControl={false}>
-            <ZoomControl position="bottomright" />
-            <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' />
+          {layerMode === "wind" ? (
+            /* Windy.com Wind Map */
+            <>
+              <iframe
+                src={`https://embed.windy.com/embed2.html?lat=20.5&lon=78.9&detailLat=20.5&detailLon=78.9&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1`}
+                style={{ width: "100%", height: "100%", border: "none" }}
+                title="Windy Wind Map - India"
+              />
+              {/* Wind Map Info */}
+              <div className="absolute bottom-4 left-4 bg-card/95 backdrop-blur-sm rounded-lg px-4 py-3 z-[1000] border border-dash-border shadow-lg" style={{ maxWidth: 280 }}>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-lg">💨</span>
+                  <span className="text-sm font-bold text-foreground">Live Wind Map</span>
+                </div>
+                <div style={{ fontSize: 11, color: "#64748b", lineHeight: 1.6 }}>
+                  Real-time wind patterns across India<br />
+                  • <strong>Direction</strong>: Arrow flow<br />
+                  • <strong>Speed</strong>: Color intensity<br />
+                  • <strong>Data</strong>: ECMWF Global Model
+                </div>
+                <div className="mt-2 pt-2 border-t border-dash-border">
+                  <span style={{ fontSize: 10, color: "#94a3b8", fontStyle: "italic" }}>
+                    Powered by Windy.com
+                  </span>
+                </div>
+              </div>
+            </>
+          ) : (
+            /* Original Leaflet Map */
+            <MapContainer center={[20.5, 78.9]} zoom={5} style={{ height: "100%", width: "100%" }} scrollWheelZoom={true} zoomControl={false}>
+              <ZoomControl position="bottomright" />
+              <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' />
 
             {filtered.map((c: any) => {
               const glow = getGlow(c.score, c.emissions);
@@ -268,22 +308,25 @@ export default function LiveMapPage() {
               );
             })}
           </MapContainer>
+          )}
 
-          {/* Legend */}
-          <div className="absolute bottom-4 left-4 bg-card/90 backdrop-blur-sm rounded-lg px-4 py-3 z-[1000] border border-dash-border" style={{ maxWidth: 260 }}>
-            <div className="flex items-center gap-4 mb-2">
-              {[{ g: "A", c: "#059669" }, { g: "B", c: "#0891b2" }, { g: "C", c: "#d97706" }, { g: "D", c: "#ea580c" }, { g: "F", c: "#dc2626" }].map((l) => (
-                <div key={l.g} className="flex items-center gap-1">
-                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: l.c }} />
-                  <span className="text-[10px] font-semibold">{l.g}</span>
-                </div>
-              ))}
+          {/* Legend - only show for non-wind modes */}
+          {layerMode !== "wind" && (
+            <div className="absolute bottom-4 left-4 bg-card/90 backdrop-blur-sm rounded-lg px-4 py-3 z-[1000] border border-dash-border" style={{ maxWidth: 260 }}>
+              <div className="flex items-center gap-4 mb-2">
+                {[{ g: "A", c: "#059669" }, { g: "B", c: "#0891b2" }, { g: "C", c: "#d97706" }, { g: "D", c: "#ea580c" }, { g: "F", c: "#dc2626" }].map((l) => (
+                  <div key={l.g} className="flex items-center gap-1">
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: l.c }} />
+                    <span className="text-[10px] font-semibold">{l.g}</span>
+                  </div>
+                ))}
+              </div>
+              <div style={{ fontSize: 11, color: "#94a3b8", fontStyle: "italic", lineHeight: 1.6 }}>
+                ● Pulsing red = Flagged today<br />
+                ◯ Circle size = Emission volume
+              </div>
             </div>
-            <div style={{ fontSize: 11, color: "#94a3b8", fontStyle: "italic", lineHeight: 1.6 }}>
-              ● Pulsing red = Flagged today<br />
-              ◯ Circle size = Emission volume
-            </div>
-          </div>
+          )}
         </div>
       </div>
 

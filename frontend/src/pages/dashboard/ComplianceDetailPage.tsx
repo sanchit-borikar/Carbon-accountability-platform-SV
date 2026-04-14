@@ -148,11 +148,18 @@ export default function ComplianceDetailPage() {
               <th className="text-left py-2">Source</th><th className="text-left py-2">Reading</th><th className="text-left py-2">vs Baseline</th><th className="text-left py-2">Discrepancy</th><th className="text-left py-2">Status</th>
             </tr></thead>
             <tbody>
-              {[
-                { src: "🏭 IoT Sensor", val: company.iot, diff: "—", disc: "—", active: true },
-                { src: "🛰 NASA GEOS-CF", val: company.satellite, diff: `${(((company.satellite - company.iot) / company.iot) * 100).toFixed(1)}%`, disc: `${company.discrepancy}%`, active: true },
-                { src: "📡 OpenAQ", val: company.openaq, diff: `${(((company.openaq - company.iot) / company.iot) * 100).toFixed(1)}%`, disc: `${(Math.abs(company.openaq - company.iot) / company.iot * 100).toFixed(1)}%`, active: true },
-              ].map((r: any, i: number) => (
+              {(() => {
+                const iot = company.iot || 0;
+                const sat = company.satellite || 0;
+                const oaq = company.openaq || 0;
+                const base = iot || sat || oaq || 1; // avoid division by zero
+                const pctDiff = (a: number, b: number) => b ? `${(((a - b) / b) * 100).toFixed(1)}%` : "—";
+                return [
+                  { src: "🏭 IoT Sensor", val: iot, diff: "—", disc: "—" },
+                  { src: "🛰 NASA GEOS-CF", val: sat, diff: pctDiff(sat, base), disc: `${company.discrepancy || 0}%` },
+                  { src: "📡 OpenAQ", val: oaq, diff: pctDiff(oaq, base), disc: base > 0 ? `${(Math.abs(oaq - base) / base * 100).toFixed(1)}%` : "—" },
+                ];
+              })().map((r: any, i: number) => (
                 <tr key={i} className="border-b border-dash-border">
                   <td className="py-2 font-medium">{r.src}</td>
                   <td className="py-2 font-mono">{r.val.toLocaleString()} kg</td>

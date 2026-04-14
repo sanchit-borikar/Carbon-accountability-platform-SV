@@ -57,8 +57,8 @@ export default function MyCompanyPage() {
   return (
     <div className="space-y-6 animate-fade-up">
       <div>
-        <h1 className="text-xl font-display font-bold text-foreground">Good Morning, {company.name} 👋</h1>
-        <p className="text-sm text-muted-foreground">Your compliance overview for today — 7 March 2026</p>
+        <h1 className="text-xl font-display font-bold text-foreground">{new Date().getHours() < 12 ? "Good Morning" : new Date().getHours() < 17 ? "Good Afternoon" : "Good Evening"}, {company.name} 👋</h1>
+        <p className="text-sm text-muted-foreground">Your compliance overview for today — {new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</p>
       </div>
 
       {/* KPIs */}

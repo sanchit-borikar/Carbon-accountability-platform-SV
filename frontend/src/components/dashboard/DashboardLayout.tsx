@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
-import { Globe, Home, Map, Building2, BarChart3, AlertTriangle, Factory, TrendingUp, Settings, LogOut, Bell, Search, Menu, X, Trophy } from "lucide-react";
+import { Globe, Home, Map, Building2, BarChart3, AlertTriangle, Factory, TrendingUp, Settings, LogOut, Bell, Search, Menu, X, Trophy, Scale, BrainCircuit } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import LiveTicker from "@/components/LiveTicker";
 import { useAlerts } from "@/services/useVayuData";
@@ -12,10 +12,12 @@ const navItems = [
   { path: "/dashboard/profiles", label: "Profiles", icon: Building2 },
   { path: "/dashboard/data", label: "Data & Verify", icon: BarChart3 },
   { path: "/dashboard/rankings", label: "Rankings", icon: Trophy },
+  { path: "/dashboard/penalties", label: "Penalties", icon: Scale },
   
   { path: "/dashboard/alerts", label: "Alerts & Reports", icon: AlertTriangle, regulatorOnly: true },
   { path: "/dashboard/company", label: "My Company", icon: Factory, companyOnly: true },
   { path: "/dashboard/analytics", label: "Analytics", icon: TrendingUp },
+  { path: "/dashboard/predictive", label: "Predictive Modeling", icon: BrainCircuit },
   { path: "/dashboard/settings", label: "Settings", icon: Settings },
 ];
 
@@ -142,7 +144,7 @@ export default function DashboardLayout() {
                 </div>
               )}
               <div className="w-px h-6 bg-[#e2e8f0]" />
-              <span className="text-xs text-[#64748b] hidden lg:block">Good Morning, {user?.orgName}</span>
+              <span className="text-xs text-[#64748b] hidden lg:block">{new Date().getHours() < 12 ? "Good Morning" : new Date().getHours() < 17 ? "Good Afternoon" : "Good Evening"}, {user?.orgName}</span>
               <div className="w-8 h-8 rounded-full bg-[#2563eb] flex items-center justify-center text-xs font-bold text-white shadow-sm">{initials}</div>
             </div>
           </header>

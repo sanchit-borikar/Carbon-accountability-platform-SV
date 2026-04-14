@@ -193,14 +193,16 @@ export function useAnalytics(role = "public", companyCity = null) {
     ]).then(([sectorsData, emissions]) => {
       setSectors(toSectorChartData(sectorsData || []));
 
+      // Build full 24h timeline keyed by hour
       const grouped = {};
+      for (let h = 0; h < 24; h++) {
+        const key = h.toString().padStart(2, "0") + ":00";
+        grouped[key] = { industrial: 0, transport: 0, energy: 0 };
+      }
       const energyCities = ["Chennai","Hyderabad","Bengaluru","Visakhapatnam","Kochi","Thiruvananthapuram","Coimbatore","Madurai"];
       (emissions || []).forEach(e => {
         const hour = new Date(e.timestamp)
           .getHours().toString().padStart(2, "0") + ":00";
-        if (!grouped[hour]) {
-          grouped[hour] = { industrial: 0, transport: 0, energy: 0 };
-        }
         let s = (e.sector || "industrial").toLowerCase();
         if (s === "historical_baseline") {
           s = energyCities.includes(e.city) ? "energy" : "industrial";
@@ -208,9 +210,11 @@ export function useAnalytics(role = "public", companyCity = null) {
         grouped[hour][s] = (grouped[hour][s] || 0) + (e.co2_equivalent || 0);
       });
 
-      const tl = Object.entries(grouped)
-        .sort(([a], [b]) => a.localeCompare(b))
-        .map(([time, vals]) => ({
+      // Reorder starting from current hour so chart reads left-to-right
+      const nowHour = new Date().getHours();
+      const allHours = Object.entries(grouped).sort(([a], [b]) => a.localeCompare(b));
+      const ordered = [...allHours.slice(nowHour + 1), ...allHours.slice(0, nowHour + 1)];
+      const tl = ordered.map(([time, vals]) => ({
           time,
           Industry:  Math.round(vals.industrial || 0),
           Transport: Math.round(vals.transport || 0),

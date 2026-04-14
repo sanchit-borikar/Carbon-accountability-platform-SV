@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useOverview, useAnalytics, useLiveFeed } from "@/services/useVayuData";
-import { scoreToColor, getHealth, getForecast } from "@/services/api";
+import { scoreToColor, getHealth, getForecast, getSourceCounts } from "@/services/api";
 import GradeBadge from "@/components/GradeBadge";
 import StatusBadge from "@/components/StatusBadge";
 import SectorIcon from "@/components/SectorIcon";
@@ -11,6 +12,7 @@ import { AlertTriangle, TrendingUp, TrendingDown, Activity, MapPin, CheckCircle2
 
 export default function OverviewPage() {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const { data: overview, loading: overviewLoading } = useOverview();
   const { sectors: sectorChart, timeline, loading: analyticsLoading } = useAnalytics();
   const { feed: liveFeedItems } = useLiveFeed();
@@ -19,6 +21,13 @@ export default function OverviewPage() {
   const [sources, setSources] = useState<any[]>([]);
 
   const loading = overviewLoading || analyticsLoading;
+
+  const now = new Date();
+  const hour = now.getHours();
+  const greeting = hour < 12 ? "Good Morning" : hour < 17 ? "Good Afternoon" : "Good Evening";
+  const todayStr = now.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  const currentMonth = now.toLocaleDateString("en-GB", { month: "long" });
+  const prevMonth = new Date(now.getFullYear(), now.getMonth() - 1).toLocaleDateString("en-GB", { month: "long" });
 
   // Fetch ML forecasts and health
   useEffect(() => {
@@ -49,14 +58,24 @@ export default function OverviewPage() {
     getHealth().then((h: any) => {
       if (h) {
         const live = h.status === "healthy";
-        setSources([
+        const defaultSources = [
           { name: "OpenAQ API",     status: live ? "live" : "off", time: "auto", count: 0 },
           { name: "NASA GEOS-CF",   status: live ? "live" : "off", time: "auto", count: 0 },
           { name: "WAQI AirQuality",status: live ? "live" : "off", time: "auto", count: 0 },
           { name: "data.gov.in",    status: live ? "live" : "off", time: "auto", count: 0 },
           { name: "Kafka Pipeline", status: live ? "live" : "off", time: "auto", count: 0 },
           { name: "PostgreSQL",     status: h.database ? "live" : "off", time: "auto", count: h.records || 0 },
-        ]);
+        ];
+        setSources(defaultSources);
+        // Fetch real per-source counts
+        getSourceCounts().then((counts: any) => {
+          if (counts) {
+            setSources(defaultSources.map(s => ({
+              ...s,
+              count: counts[s.name] ?? s.count,
+            })));
+          }
+        });
       }
     });
   }, []);
@@ -80,7 +99,7 @@ export default function OverviewPage() {
     if (DISPLAY_SECTORS.includes(s.name)) {
       sectorData[s.name] = {
         co2e: s.co2e || 0,
-        who_breaches: 0,
+        who_breaches: s.who_breaches || 0,
         score: s.score || 0,
       };
     }
@@ -115,7 +134,7 @@ export default function OverviewPage() {
               <p className="text-[#6b7280] text-xs mt-0.5">{(overview?.topPollutedCities || []).slice(0, 3).map((c: any) => c.city || c).join(", ")} + more cities</p>
             </div>
           </div>
-          <button className="border border-[#ef4444] text-[#ef4444] bg-white rounded-md px-3.5 py-1.5 text-xs font-semibold hover:bg-red-50 transition-colors whitespace-nowrap">
+          <button onClick={() => navigate("/dashboard/alerts")} className="border border-[#ef4444] text-[#ef4444] bg-white rounded-md px-3.5 py-1.5 text-xs font-semibold hover:bg-red-50 transition-colors whitespace-nowrap">
             View All Violations
           </button>
         </div>
@@ -124,7 +143,7 @@ export default function OverviewPage() {
       {/* Header & Badges */}
       <div>
         <div className="flex items-center gap-3 flex-wrap mb-1">
-          <h1 className="text-xl font-display font-bold text-foreground">Good Morning, {user?.orgName || "EcoFreight Ltd"} 👋</h1>
+          <h1 className="text-xl font-display font-bold text-foreground">{greeting}, {user?.orgName || "EcoFreight Ltd"} 👋</h1>
           <div className="flex gap-1.5">
             <span className="bg-teal-500 text-white rounded-full px-2.5 py-0.5 text-[10px] font-semibold flex items-center gap-1"><Globe size={10} /> SDG 13 Climate Action</span>
             <span className="bg-blue-500 text-white rounded-full px-2.5 py-0.5 text-[10px] font-semibold flex items-center gap-1"><Building2 size={10} /> SDG 9 Industry</span>
@@ -132,7 +151,7 @@ export default function OverviewPage() {
             <span className="bg-purple-500 text-white rounded-full px-2.5 py-0.5 text-[10px] font-semibold flex items-center gap-1"><Scale size={10} /> SDG 16 Justice</span>
           </div>
         </div>
-        <p className="text-sm text-muted-foreground">Here's your platform overview — 7 March 2026</p>
+        <p className="text-sm text-muted-foreground">Here's your platform overview — {todayStr}</p>
       </div>
 
       {/* KPIs */}
@@ -233,7 +252,7 @@ export default function OverviewPage() {
           {/* Monthly Comparison */}
           <div>
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-[15px] font-bold text-[#1e293b]">📊 Monthly Comparison — March vs February 2026</h3>
+              <h3 className="text-[15px] font-bold text-[#1e293b]">Monthly Comparison — {currentMonth} vs {prevMonth} {now.getFullYear()}</h3>
               <span className="text-[10px] text-slate-400 font-medium hidden sm:inline-block">Auto-updated daily</span>
             </div>
             <div className="grid sm:grid-cols-3 gap-4">

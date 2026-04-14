@@ -43,11 +43,14 @@ KAFKA_TOPICS = [
 ]
 
 
+KAFKA_BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
+
+
 def check_kafka():
     """Verify Kafka broker is reachable and ensure topics exist."""
-    info("Preflight", "Checking Kafka broker...", "localhost:9092")
+    info("Preflight", "Checking Kafka broker...", KAFKA_BOOTSTRAP_SERVERS)
     try:
-        admin = AdminClient({"bootstrap.servers": "localhost:9092"})
+        admin = AdminClient({"bootstrap.servers": KAFKA_BOOTSTRAP_SERVERS})
         metadata = admin.list_topics(timeout=10)
         success("Preflight", "Kafka broker reachable",
                 f"{len(metadata.topics)} topics found")
@@ -75,10 +78,11 @@ def check_kafka():
 
 def check_postgres():
     """Verify PostgreSQL is reachable."""
-    info("Preflight", "Checking PostgreSQL...", "localhost:5432")
+    db_host = os.getenv("DB_HOST", "localhost")
+    info("Preflight", "Checking PostgreSQL...", f"{db_host}:5432")
     try:
         conn = psycopg2.connect(
-            host="localhost", port=5432,
+            host=db_host, port=5432,
             dbname="vayu_drishti", user="postgres", password="vayu2026",
         )
         conn.close()

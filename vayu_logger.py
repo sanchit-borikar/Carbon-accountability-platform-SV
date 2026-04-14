@@ -3,6 +3,13 @@ import time
 import threading
 from datetime import datetime
 
+# Fix Windows console encoding for Unicode characters
+try:
+    sys.stdout.reconfigure(encoding='utf-8')
+except AttributeError:
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
 
 # ── ANSI COLOR CODES ──────────────────────────────────
 class C:

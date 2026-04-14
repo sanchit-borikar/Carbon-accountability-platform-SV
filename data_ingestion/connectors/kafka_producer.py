@@ -13,7 +13,7 @@ from confluent_kafka import Producer, KafkaException
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from vayu_logger import info, success, warn, error, kafka_sent, C
 
-KAFKA_BOOTSTRAP_SERVERS = "localhost:9092"
+KAFKA_BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
 
 _producer = None
 

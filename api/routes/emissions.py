@@ -83,11 +83,10 @@ def get_latest_emissions(
 ):
     """Get most recent emission records"""
     result = db.execute(text("""
-        SELECT DISTINCT ON (city, primary_pollutant)
-            *
+        SELECT *
         FROM emission_records
-        ORDER BY city, primary_pollutant,
-                 timestamp DESC
+        WHERE timestamp > NOW() - INTERVAL '6 hours'
+        ORDER BY timestamp DESC
         LIMIT :limit
     """), {"limit": limit})
     cols = result.keys()

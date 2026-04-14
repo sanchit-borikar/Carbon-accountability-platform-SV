@@ -3,8 +3,10 @@ VayuDrishti - Carbon Emission Tracking Platform
 Data ingestion configuration
 """
 
+import os
+
 # Kafka Configuration
-KAFKA_BOOTSTRAP_SERVERS = "localhost:9092"
+KAFKA_BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
 
 KAFKA_TOPICS = {
     "industrial": "vayudrishti.emissions.industrial",

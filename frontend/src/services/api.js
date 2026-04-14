@@ -1,5 +1,5 @@
-const BASE_URL = "http://localhost:8001";
-const WS_URL   = "ws://localhost:8001/ws/live";
+const BASE_URL = "http://localhost:8000";
+const WS_URL   = "ws://localhost:8000/ws/live";
 
 // ── CORE FETCHER ─────────────────────────────
 async function apiFetch(endpoint, params = {}) {
@@ -24,6 +24,9 @@ export const getDashboardSummary = () =>
 
 export const getHealth = () =>
   apiFetch("/health");
+
+export const getSourceCounts = () =>
+  apiFetch("/api/pipeline/sources");
 
 // ── EMISSIONS ────────────────────────────────
 export const getEmissions = (params = {}) =>
@@ -189,6 +192,7 @@ export function toSectorChartData(sectors) {
       records:    s.records || 0,
       score:      Math.round(s.avg_score || 0),
       percentage: s.percentage || 0,
+      who_breaches: s.who_breaches || 0,
     }));
 }
 
@@ -219,26 +223,33 @@ export function toRankings(compliance) {
 export function toLiveFeed(emissions) {
   if (!emissions) return [];
   const energyCities = ["Chennai","Hyderabad","Bengaluru","Visakhapatnam","Kochi","Thiruvananthapuram","Coimbatore","Madurai"];
-  return emissions.map(e => {
-    let sector = (e.sector || "industrial").toLowerCase();
-    if (sector === "historical_baseline") {
-      sector = energyCities.includes(e.city) ? "energy" : "industrial";
-    }
-    return {
-      id:        e.id,
-      time:      timeAgo(e.timestamp),
-      entity:    e.city,
-      sector:    capitalize(sector),
-      value:     `${Math.round(e.primary_value || 0)} kg`,
-      pollutant: e.primary_pollutant,
-      status:    e.exceeds_who ? "FLAGGED" : "VERIFIED",
-      flagged:   e.exceeds_who || e.exceeds_cpcb,
-      co2e:      e.co2_equivalent,
-      source:    e.source,
-      txId:      e.blockchain_tx,
-      anchored:  e.chain_anchored,
-    };
-  });
+  return emissions
+    .filter(e => e.primary_value > 0 && e.co2_equivalent > 0) // Filter out invalid records
+    .map(e => {
+      let sector = (e.sector || "industrial").toLowerCase();
+      if (sector === "historical_baseline") {
+        sector = energyCities.includes(e.city) ? "energy" : "industrial";
+      }
+      // Format pollutant reading value with proper units
+      const val = e.primary_value || 0;
+      const unit = e.primary_pollutant === 'co' ? 'ppm' : 'µg/m³';
+      const displayValue = val < 10 ? val.toFixed(1) : Math.round(val);
+
+      return {
+        id:        e.id,
+        time:      timeAgo(e.timestamp),
+        entity:    e.city,
+        sector:    capitalize(sector),
+        value:     `${displayValue} ${unit}`,
+        pollutant: e.primary_pollutant?.toUpperCase(),
+        status:    e.exceeds_who ? "FLAGGED" : "VERIFIED",
+        flagged:   e.exceeds_who || e.exceeds_cpcb,
+        co2e:      e.co2_equivalent,
+        source:    e.source,
+        txId:      e.blockchain_tx,
+        anchored:  e.chain_anchored,
+      };
+    });
 }
 
 export function toAuditTrail(anchored) {
@@ -262,12 +273,16 @@ export function toAuditTrail(anchored) {
 export function createLiveSocket(onMessage) {
   let ws = null;
   let reconnectTimer = null;
+  let retries = 0;
+  const MAX_RETRIES = 5;
 
   function connect() {
+    if (retries >= MAX_RETRIES) return;
     try {
       ws = new WebSocket(WS_URL);
 
       ws.onopen = () => {
+        retries = 0;
         console.log("VayuDrishti: WS connected");
       };
 
@@ -279,14 +294,18 @@ export function createLiveSocket(onMessage) {
       };
 
       ws.onclose = () => {
-        reconnectTimer = setTimeout(connect, 5000);
+        retries++;
+        const delay = Math.min(5000 * Math.pow(2, retries), 60000);
+        reconnectTimer = setTimeout(connect, delay);
       };
 
       ws.onerror = () => {
         ws.close();
       };
     } catch (_e) {
-      reconnectTimer = setTimeout(connect, 5000);
+      retries++;
+      const delay = Math.min(5000 * Math.pow(2, retries), 60000);
+      reconnectTimer = setTimeout(connect, delay);
     }
   }
 

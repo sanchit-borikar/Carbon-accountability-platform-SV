@@ -22,6 +22,8 @@ from processing.co2_converter import enrich_record
 from processing.deduplicator import is_duplicate
 from processing.db_writer import init_db, write_record
 
+KAFKA_BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
+
 TOPICS = [
     "emissions.industrial",
     "emissions.transport",
@@ -33,7 +35,7 @@ TOPICS = [
 def _ensure_topics():
     """Create Kafka topics if they don't exist yet."""
     try:
-        admin = AdminClient({"bootstrap.servers": "localhost:9092"})
+        admin = AdminClient({"bootstrap.servers": KAFKA_BOOTSTRAP_SERVERS})
         metadata = admin.list_topics(timeout=10)
         existing = set(metadata.topics.keys())
         missing = [t for t in TOPICS if t not in existing]
@@ -73,13 +75,13 @@ def run_consumer():
 
     banner("VayuDrishti Stream Processor",
            "Clean \u00b7 Normalize \u00b7 Score \u00b7 Store")
-    info("Kafka", "Connecting to broker...", "localhost:9092")
+    info("Kafka", "Connecting to broker...", KAFKA_BOOTSTRAP_SERVERS)
 
     _ensure_topics()
     time.sleep(2)
 
     conf = {
-        "bootstrap.servers": "localhost:9092",
+        "bootstrap.servers": KAFKA_BOOTSTRAP_SERVERS,
         "group.id": "vayu_processing_group",
         "auto.offset.reset": "latest",
         "enable.auto.commit": True,

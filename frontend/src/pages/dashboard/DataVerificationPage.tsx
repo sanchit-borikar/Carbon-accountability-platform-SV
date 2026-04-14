@@ -123,7 +123,7 @@ export default function DataVerificationPage() {
     };
 
     try {
-      const res = await fetch("http://localhost:8001/api/manual-report", {
+      const res = await fetch("http://localhost:8000/api/manual-report", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
