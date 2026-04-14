@@ -45,6 +45,8 @@ def get_all_compliance(
                 AS compliance_score,
             AVG(co2_equivalent)::float
                 AS avg_co2_equivalent,
+            AVG(CASE WHEN primary_pollutant = 'pm2_5' THEN primary_value ELSE NULL END)::float
+                AS avg_pm2_5,
             COUNT(*)::int       AS total_records,
             SUM(CASE WHEN exceeds_who
                 THEN 1 ELSE 0 END)::int
@@ -86,6 +88,8 @@ def get_city_compliance(
                 AS compliance_score,
             AVG(co2_equivalent)::float
                 AS avg_co2_equivalent,
+            AVG(CASE WHEN primary_pollutant = 'pm2_5' THEN primary_value ELSE NULL END)::float
+                AS avg_pm2_5,
             COUNT(*)::int       AS total_records,
             SUM(CASE WHEN exceeds_who
                 THEN 1 ELSE 0 END)::int

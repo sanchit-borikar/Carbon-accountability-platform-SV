@@ -136,24 +136,46 @@ export default function LiveMapPage() {
         {/* Map */}
         <div className="flex-1 relative">
           {layerMode === "wind" ? (
-            /* Windy.com Wind Map */
-            <>
+            /* Windy.com Maps */
+            <div className="relative w-full h-full">
+              {/* Layer Selection for Windy Map */}
+              <div className="absolute top-4 right-4 z-[1000] flex gap-2 bg-white/90 backdrop-blur-sm p-1.5 rounded-lg shadow-sm border border-slate-200">
+                {[
+                  { id: "wind", icon: "💨", label: "Wind" },
+                  { id: "pm2p5", icon: "🌫", label: "PM2.5" },
+                  { id: "tcso2", icon: "🏭", label: "Emissions" }, // SO2 as proxy for emissions on Windy
+                ].map((l) => (
+                  <button
+                    key={l.id}
+                    onClick={() => setLayerMode(`wind_${l.id}` as LayerMode)}
+                    className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all ${
+                      layerMode === "wind" ? l.id === "wind" ? "bg-blue-600 text-white shadow-sm" : "text-slate-600 hover:bg-slate-100" :
+                      layerMode === `wind_${l.id}` ? "bg-blue-600 text-white shadow-sm" : "text-slate-600 hover:bg-slate-100"
+                    }`}
+                  >
+                    <span className="mr-1.5">{l.icon}</span>{l.label}
+                  </button>
+                ))}
+              </div>
+
               <iframe
-                src={`https://embed.windy.com/embed2.html?lat=20.5&lon=78.9&detailLat=20.5&detailLon=78.9&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1`}
+                key={layerMode} // Force iframe reload when layer changes
+                src={`https://embed.windy.com/embed2.html?lat=20.5&lon=78.9&detailLat=20.5&detailLon=78.9&width=650&height=450&zoom=5&level=surface&overlay=${layerMode === 'wind' ? 'wind' : layerMode.replace('wind_', '')}&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1`}
                 style={{ width: "100%", height: "100%", border: "none" }}
-                title="Windy Wind Map - India"
+                title="Windy Map - India"
               />
               {/* Wind Map Info */}
               <div className="absolute bottom-4 left-4 bg-card/95 backdrop-blur-sm rounded-lg px-4 py-3 z-[1000] border border-dash-border shadow-lg" style={{ maxWidth: 280 }}>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-lg">💨</span>
-                  <span className="text-sm font-bold text-foreground">Live Wind Map</span>
+                  <span className="text-lg">🌍</span>
+                  <span className="text-sm font-bold text-foreground">
+                    Live {layerMode === "wind" ? "Wind" : layerMode === "wind_pm2p5" ? "PM2.5" : "Emissions"} Map
+                  </span>
                 </div>
                 <div style={{ fontSize: 11, color: "#64748b", lineHeight: 1.6 }}>
-                  Real-time wind patterns across India<br />
-                  • <strong>Direction</strong>: Arrow flow<br />
-                  • <strong>Speed</strong>: Color intensity<br />
-                  • <strong>Data</strong>: ECMWF Global Model
+                  Real-time atmospheric data across India<br />
+                  • <strong>Overlay</strong>: {layerMode === "wind" ? "Surface Wind" : layerMode === "wind_pm2p5" ? "Fine Particulate Matter" : "Industrial Emissions"}<br />
+                  • <strong>Data Source</strong>: ECMWF Global Model
                 </div>
                 <div className="mt-2 pt-2 border-t border-dash-border">
                   <span style={{ fontSize: 10, color: "#94a3b8", fontStyle: "italic" }}>
@@ -161,7 +183,8 @@ export default function LiveMapPage() {
                   </span>
                 </div>
               </div>
-            </>
+            </div>
+
           ) : (
             /* Original Leaflet Map */
             <MapContainer center={[20.5, 78.9]} zoom={5} style={{ height: "100%", width: "100%" }} scrollWheelZoom={true} zoomControl={false}>
@@ -259,8 +282,12 @@ export default function LiveMapPage() {
                             {/* Data rows */}
                             <div style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: 12 }}>
                               <div style={{ display: "flex", justifyContent: "space-between" }}>
-                                <span style={{ color: "#64748b" }}>� CO2e Emissions</span>
+                                <span style={{ color: "#64748b" }}>🌍 CO2e Emissions</span>
                                 <span style={{ fontFamily: "JetBrains Mono, monospace", fontWeight: 500 }}>{c.emissions?.toLocaleString()} μg/m³</span>
+                              </div>
+                              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                                <span style={{ color: "#64748b" }}>💨 PM2.5 Level</span>
+                                <span style={{ fontFamily: "JetBrains Mono, monospace", fontWeight: 700, color: c.pm25 > 60 ? "#dc2626" : "#059669" }}>{c.pm25?.toLocaleString()} μg/m³</span>
                               </div>
                               <div style={{ display: "flex", justifyContent: "space-between" }}>
                                 <span style={{ color: "#64748b" }}>🏭 Sector</span>

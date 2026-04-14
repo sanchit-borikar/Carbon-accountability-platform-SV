@@ -1,5 +1,5 @@
-const BASE_URL = "http://localhost:8000";
-const WS_URL   = "ws://localhost:8000/ws/live";
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+const WS_URL   = import.meta.env.VITE_SOCKET_URL || "ws://localhost:8000/ws/live";
 
 // ── CORE FETCHER ─────────────────────────────
 async function apiFetch(endpoint, params = {}) {
@@ -75,12 +75,26 @@ export const verifyRecord = (id) =>
 export const getAnchoredRecords = () =>
   apiFetch("/api/blockchain/anchored");
 
+// ── COMPANIES & PENALTIES ────────────────────
+export const getCompanies = () =>
+  apiFetch("/api/companies");
+
+export const getCompanyLeaderboard = () =>
+  apiFetch("/api/companies/leaderboard");
+
+export const getCompanyAlerts = () =>
+  apiFetch("/api/companies/alerts");
+
+export const getCityPenalties = (city) =>
+  apiFetch(`/api/penalties/city/${encodeURIComponent(city)}`);
+
 // ── DATA TRANSFORMERS ────────────────────────
 export function toMapMarkers(cities) {
   if (!cities) return [];
   return cities.map((c, i) => {
     const score = Math.round(c.compliance_score || 0);
     const co2e = Math.round(c.avg_co2_equivalent || 0);
+    const pm25 = Math.round(c.avg_pm2_5 || 0);
     const flagged = (c.who_violations || 0) > 0;
     return {
       id:         i + 1,
@@ -91,6 +105,7 @@ export function toMapMarkers(cities) {
       grade:      scoreToGrade(score),
       emissions:  co2e,
       co2e,
+      pm25,
       sector:     c.sector || guessSector(c.city),
       state:      c.state || guessState(c.city),
       location:   `${c.city}, ${c.state || guessState(c.city) || "India"}`,

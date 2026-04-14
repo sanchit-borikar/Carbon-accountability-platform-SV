@@ -33,6 +33,7 @@ class CityCompliance(BaseModel):
     state:              Optional[str]
     compliance_score:   float
     avg_co2_equivalent: float
+    avg_pm2_5:          Optional[float] = 0.0
     total_records:      int
     who_violations:     int
     cpcb_violations:    int

@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Search, DollarSign, AlertCircle, Scale, TrendingUp, MapPin, Building2, Info, RefreshCw, Factory, Zap, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
 import SkeletonLoader from "@/components/SkeletonLoader";
-
-const API_BASE = "http://localhost:8000";
+import { getCompanies, getCompanyLeaderboard, getCompanyAlerts, getCityPenalties } from "@/services/api";
 const REFRESH_INTERVAL = 10_000;
 
 // ── Types ───────────────────────────────────────
@@ -114,26 +113,23 @@ export default function PenaltiesPage() {
     if (!mountedRef.current) return;
     setRefreshing(true);
     try {
-      const [compRes, lbRes, alertRes] = await Promise.all([
-        fetch(`${API_BASE}/api/companies`),
-        fetch(`${API_BASE}/api/companies/leaderboard`),
-        fetch(`${API_BASE}/api/companies/alerts`),
+      const [compData, lbData, alertData] = await Promise.all([
+        getCompanies(),
+        getCompanyLeaderboard(),
+        getCompanyAlerts(),
       ]);
 
       if (!mountedRef.current) return;
 
-      if (compRes.ok) {
-        const data: CompanySummary = await compRes.json();
-        setCompanies(data.companies || []);
-        setTotalCompanies(data.total || 0);
+      if (compData) {
+        setCompanies(compData.companies || []);
+        setTotalCompanies(compData.total || 0);
       }
-      if (lbRes.ok) {
-        const data = await lbRes.json();
-        setLeaderboard(data.leaderboard || []);
+      if (lbData) {
+        setLeaderboard(lbData.leaderboard || []);
       }
-      if (alertRes.ok) {
-        const data = await alertRes.json();
-        setAlerts(data.alerts || []);
+      if (alertData) {
+        setAlerts(alertData.alerts || []);
       }
 
       setFetchError(false);
@@ -162,9 +158,8 @@ export default function PenaltiesPage() {
     if (!trimmed) { toast.error("Please enter a city name"); return; }
     setSearchLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/api/penalties/city/${encodeURIComponent(trimmed)}`);
-      if (res.ok) {
-        const data = await res.json();
+      const data = await getCityPenalties(trimmed);
+      if (data) {
         setCityPenalty(data);
         if (data.breakdown.length === 0) toast.info(`No penalty data found for ${trimmed}`);
       } else {
