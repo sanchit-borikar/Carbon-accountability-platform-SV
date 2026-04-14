@@ -1,0 +1,512 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 221 100% 98%;
+    --foreground: 222 84% 5%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 5%;
+    --primary: 224 76% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 224 72% 48%;
+    --primary-darker: 224 69% 40%;
+    --primary-darkest: 224 65% 33%;
+    --primary-light: 214 100% 93%;
+    --primary-lighter: 214 100% 97%;
+    --primary-bright: 217 91% 68%;
+    --primary-border: 213 97% 87%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 224 76% 53%;
+    --radius: 0.75rem;
+    --cyan: 192 91% 37%;
+    --success: 160 84% 39%;
+    --warning: 38 92% 50%;
+    --danger: 0 72% 51%;
+    --purple: 263 70% 58%;
+    --orange: 21 90% 48%;
+    --text: 222 84% 5%;
+    --text-dim: 215 25% 35%;
+    --text-muted: 215 16% 62%;
+    --navy: 222 84% 5%;
+    --navy-light: 217 33% 17%;
+    --navy-border: 215 19% 27%;
+    --dash-bg: 210 40% 96%;
+    --dash-surface: 0 0% 100%;
+    --dash-border: 214 32% 91%;
+    --dash-text: 222 84% 5%;
+    --dash-dim: 215 16% 47%;
+    --sidebar-background: 222 84% 5%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 224 76% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 215 19% 27%;
+    --sidebar-ring: 224 76% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .font-mono-data {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--cyan)), hsl(var(--purple)));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 4s ease infinite;
+  }
+
+  .btn-primary-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-dark)));
+    color: white;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+
+  .btn-primary-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px hsla(var(--primary), 0.35);
+  }
+
+  .btn-primary-gradient:active {
+    transform: scale(0.98);
+  }
+
+  .btn-secondary-outline {
+    border: 2px solid hsl(var(--primary));
+    color: hsl(var(--primary));
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .btn-secondary-outline:hover {
+    background: hsl(var(--primary-lighter));
+  }
+
+  .card-dashboard {
+    background: white;
+    border: 1px solid hsl(var(--dash-border));
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s ease;
+  }
+
+  .card-dashboard:hover {
+    box-shadow: 0 8px 32px hsla(var(--primary), 0.12);
+    transform: translateY(-3px);
+    border-color: hsl(var(--primary-border));
+  }
+
+  .glass-nav {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .ticker-bg {
+    background: hsl(var(--primary-darkest));
+  }
+
+  .navy-bg {
+    background: hsl(var(--navy));
+  }
+
+  .navy-light-bg {
+    background: hsl(var(--navy-light));
+  }
+
+  .text-success {
+    color: hsl(var(--success));
+  }
+
+  .text-warning {
+    color: hsl(var(--warning));
+  }
+
+  .text-danger {
+    color: hsl(var(--danger));
+  }
+
+  .text-cyan {
+    color: hsl(var(--cyan));
+  }
+
+  .text-purple {
+    color: hsl(var(--purple));
+  }
+
+  .text-orange {
+    color: hsl(var(--orange));
+  }
+
+  .bg-success {
+    background: hsl(var(--success));
+  }
+
+  .bg-warning {
+    background: hsl(var(--warning));
+  }
+
+  .bg-danger {
+    background: hsl(var(--danger));
+  }
+
+  .bg-cyan {
+    background: hsl(var(--cyan));
+  }
+
+  .bg-purple {
+    background: hsl(var(--purple));
+  }
+
+  .bg-orange {
+    background: hsl(var(--orange));
+  }
+
+  .bg-success-light {
+    background: hsl(160 84% 39% / 0.1);
+  }
+
+  .bg-warning-light {
+    background: hsl(38 92% 50% / 0.1);
+  }
+
+  .bg-danger-light {
+    background: hsl(0 72% 51% / 0.1);
+  }
+
+  .bg-cyan-light {
+    background: hsl(192 91% 37% / 0.1);
+  }
+
+  .bg-purple-light {
+    background: hsl(263 70% 58% / 0.1);
+  }
+
+  .bg-primary-light-bg {
+    background: hsl(var(--primary-lighter));
+  }
+
+  .border-success {
+    border-color: hsl(var(--success));
+  }
+
+  .border-warning {
+    border-color: hsl(var(--warning));
+  }
+
+  .border-danger {
+    border-color: hsl(var(--danger));
+  }
+
+  .border-cyan {
+    border-color: hsl(var(--cyan));
+  }
+
+  .border-purple {
+    border-color: hsl(var(--purple));
+  }
+
+  .border-orange {
+    border-color: hsl(var(--orange));
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+
+  66% {
+    transform: translateY(-4px) rotate(-0.5deg);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-dot {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes drawRing {
+  from {
+    stroke-dashoffset: var(--circumference);
+  }
+
+  to {
+    stroke-dashoffset: var(--final-offset);
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes pulseScale {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+}
+
+@keyframes wobble {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes progressFill {
+  from {
+    width: 0;
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.animate-ticker {
+  animation: ticker-scroll 40s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+.animate-shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+.animate-pulse-scale {
+  animation: pulseScale 2s ease-in-out infinite;
+}
+
+.animate-slide-in-top {
+  animation: slideInTop 0.3s ease forwards;
+}
+
+.animate-wobble {
+  animation: wobble 0.5s ease-in-out;
+}
+
+@keyframes pulseRingMap {
+  0% {
+    stroke-width: 1px;
+    stroke-opacity: 1;
+  }
+
+  100% {
+    stroke-width: 20px !important;
+    stroke-opacity: 0 !important;
+  }
+}
+
+.animate-pulse-ring-map {
+  animation: pulseRingMap 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes wobblePeriodic {
+
+  0%,
+  15%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  3%,
+  9% {
+    transform: rotate(-10deg);
+  }
+
+  6%,
+  12% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes flagPulse {
+  0%   { opacity: 0.15; transform: scale(1); }
+  50%  { opacity: 0.35; transform: scale(1.15); }
+  100% { opacity: 0.15; transform: scale(1); }
+}
+
+@keyframes progressBarFill {
+  from { width: 0; }
+}
+
+.flagged-glow-pulse {
+  animation: flagPulse 2s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  z-index: 1;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+  border: 1px solid #e2e8f0 !important;
+  
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+min-width: 280px;
+  width: 280px !important;
+}
+.leaflet-popup-close-button {
+  z-index: 10 !important;
+  color: white !important;
+  font-size: 18px !important;
+  top: 6px !important;
+  right: 8px !important;
+}
+.leaflet-popup-close-button:hover {
+  color: #e2e8f0 !important;
+}

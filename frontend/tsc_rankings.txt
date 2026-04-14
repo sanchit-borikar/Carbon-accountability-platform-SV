@@ -1,0 +1,253 @@
+﻿node_modules/recharts/types/cartesian/Area.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/cartesian/Bar.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/cartesian/Brush.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/cartesian/CartesianAxis.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/cartesian/CartesianGrid.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/cartesian/ErrorBar.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/cartesian/Line.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/cartesian/ReferenceArea.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/cartesian/ReferenceDot.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/cartesian/ReferenceLine.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/cartesian/Scatter.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/chart/generateCategoricalChart.d.ts(1,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/chart/Sankey.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/chart/SunburstChart.d.ts(1,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/chart/Treemap.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/component/Customized.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/component/DefaultLegendContent.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/component/DefaultTooltipContent.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/component/Label.d.ts(1,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/component/LabelList.d.ts(1,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/component/Legend.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/component/ResponsiveContainer.d.ts(1,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/component/Text.d.ts(1,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/component/Tooltip.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/container/Layer.d.ts(1,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/container/Surface.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/numberAxis/Funnel.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/polar/Pie.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/polar/PolarAngleAxis.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/polar/PolarGrid.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/polar/PolarRadiusAxis.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/polar/Radar.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/polar/RadialBar.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/shape/Cross.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/shape/Polygon.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/shape/Rectangle.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/shape/Sector.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/shape/Symbols.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/shape/Trapezoid.d.ts(4,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/recharts/types/util/BarUtils.d.ts(1,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+src/pages/dashboard/RankingsPage.tsx(87,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(89,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(90,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(91,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(92,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(94,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(95,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(96,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(97,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(105,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(106,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(112,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(113,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(114,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(115,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(116,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(117,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(118,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(120,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(120,113): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(123,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(124,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(125,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(126,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(127,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(128,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(130,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(130,109): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(133,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(134,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(135,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(136,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(137,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(138,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(140,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(140,111): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(143,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(144,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(145,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(146,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(147,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(148,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(150,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(150,111): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(156,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(158,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(169,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(170,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(171,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(172,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(173,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(174,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(175,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(176,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(177,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(180,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(184,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(184,41): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(189,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(190,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(191,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(192,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(193,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(194,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(195,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(196,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(197,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(198,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(199,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(200,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(201,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(202,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(205,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(210,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(211,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(212,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(213,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(214,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(216,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(217,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(221,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(222,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(223,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(224,25): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(226,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(228,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(228,108): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(229,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(230,35): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(230,57): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(232,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(233,36): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(233,58): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(235,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(236,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(240,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(242,25): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(243,27): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(245,27): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(247,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(248,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(249,25): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(253,27): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(267,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(268,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(269,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(270,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(271,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(271,36): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(271,57): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(273,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(275,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(276,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(276,168): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(277,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(278,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(279,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(280,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(281,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(282,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(282,173): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(288,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(289,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(290,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(290,80): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(291,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(291,108): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(293,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(295,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(295,20): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(295,92): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(295,146): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(296,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(296,20): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(296,93): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(296,120): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(296,171): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(296,230): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(296,281): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(296,339): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(296,390): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(297,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(297,20): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(297,97): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(297,151): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(297,171): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(297,196): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(299,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(300,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(301,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(308,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(310,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(311,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(312,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(314,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(315,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(316,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(317,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(319,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(320,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(320,56): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(321,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(321,56): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(322,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(322,56): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(325,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(326,14): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(327,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(328,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(329,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(330,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(331,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(335,28): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(344,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(345,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(346,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(348,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(352,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(353,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(354,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(355,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(356,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(357,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(359,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(361,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(362,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(372,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(373,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(374,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(375,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(377,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(378,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(379,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(380,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(382,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(383,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(384,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(386,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(395,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(396,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(397,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(399,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(400,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(401,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(402,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(404,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(405,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(406,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(408,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(424,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(425,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(432,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/dashboard/RankingsPage.tsx(433,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.

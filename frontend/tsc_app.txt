@@ -1,0 +1,131 @@
+﻿node_modules/@tanstack/query-core/build/legacy/focusManager.d.ts(6,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/@tanstack/query-core/build/legacy/hydration-Cvr-9VdO.d.ts(9,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/@tanstack/query-core/build/legacy/hydration-Cvr-9VdO.d.ts(115,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/@tanstack/query-core/build/legacy/hydration-Cvr-9VdO.d.ts(156,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/@tanstack/query-core/build/legacy/hydration-Cvr-9VdO.d.ts(205,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/@tanstack/query-core/build/legacy/hydration-Cvr-9VdO.d.ts(265,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/@tanstack/query-core/build/legacy/hydration-Cvr-9VdO.d.ts(418,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/@tanstack/query-core/build/legacy/hydration-Cvr-9VdO.d.ts(435,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/@tanstack/query-core/build/legacy/onlineManager.d.ts(6,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/@tanstack/query-core/build/legacy/queriesObserver.d.ts(11,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/@tanstack/query-core/build/legacy/removable.d.ts(2,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/sonner/dist/index.d.ts(1,8): error TS1259: Module '"D:/Vayu/AVBC-Boys/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+src/App.tsx(1,25): error TS2307: Cannot find module '@/components/ui/toaster' or its corresponding type declarations.
+src/App.tsx(2,35): error TS2307: Cannot find module '@/components/ui/sonner' or its corresponding type declarations.
+src/App.tsx(3,33): error TS2307: Cannot find module '@/components/ui/tooltip' or its corresponding type declarations.
+src/App.tsx(6,39): error TS2307: Cannot find module '@/contexts/AuthContext' or its corresponding type declarations.
+src/App.tsx(7,19): error TS6142: Module './pages/Index' was resolved to 'D:/Vayu/AVBC-Boys/src/pages/Index.tsx', but '--jsx' is not set.
+src/App.tsx(8,23): error TS6142: Module './pages/LoginPage' was resolved to 'D:/Vayu/AVBC-Boys/src/pages/LoginPage.tsx', but '--jsx' is not set.
+src/App.tsx(9,26): error TS6142: Module './pages/RegisterPage' was resolved to 'D:/Vayu/AVBC-Boys/src/pages/RegisterPage.tsx', but '--jsx' is not set.
+src/App.tsx(10,30): error TS6142: Module './pages/UnauthorizedPage' was resolved to 'D:/Vayu/AVBC-Boys/src/pages/UnauthorizedPage.tsx', but '--jsx' is not set.
+src/App.tsx(11,22): error TS6142: Module './pages/NotFound' was resolved to 'D:/Vayu/AVBC-Boys/src/pages/NotFound.tsx', but '--jsx' is not set.
+src/App.tsx(12,29): error TS6142: Module './components/dashboard/DashboardLayout' was resolved to 'D:/Vayu/AVBC-Boys/src/components/dashboard/DashboardLayout.tsx', but '--jsx' is not set.
+src/App.tsx(13,26): error TS6142: Module './pages/dashboard/OverviewPage' was resolved to 'D:/Vayu/AVBC-Boys/src/pages/dashboard/OverviewPage.tsx', but '--jsx' is not set.
+src/App.tsx(14,25): error TS6142: Module './pages/dashboard/LiveMapPage' was resolved to 'D:/Vayu/AVBC-Boys/src/pages/dashboard/LiveMapPage.tsx', but '--jsx' is not set.
+src/App.tsx(15,26): error TS6142: Module './pages/dashboard/ProfilesPage' was resolved to 'D:/Vayu/AVBC-Boys/src/pages/dashboard/ProfilesPage.tsx', but '--jsx' is not set.
+src/App.tsx(16,34): error TS6142: Module './pages/dashboard/ComplianceDetailPage' was resolved to 'D:/Vayu/AVBC-Boys/src/pages/dashboard/ComplianceDetailPage.tsx', but '--jsx' is not set.
+src/App.tsx(17,34): error TS6142: Module './pages/dashboard/DataVerificationPage' was resolved to 'D:/Vayu/AVBC-Boys/src/pages/dashboard/DataVerificationPage.tsx', but '--jsx' is not set.
+src/App.tsx(18,26): error TS6142: Module './pages/dashboard/RankingsPage' was resolved to 'D:/Vayu/AVBC-Boys/src/pages/dashboard/RankingsPage.tsx', but '--jsx' is not set.
+src/App.tsx(19,24): error TS6142: Module './pages/dashboard/AlertsPage' was resolved to 'D:/Vayu/AVBC-Boys/src/pages/dashboard/AlertsPage.tsx', but '--jsx' is not set.
+src/App.tsx(20,27): error TS6142: Module './pages/dashboard/MyCompanyPage' was resolved to 'D:/Vayu/AVBC-Boys/src/pages/dashboard/MyCompanyPage.tsx', but '--jsx' is not set.
+src/App.tsx(21,27): error TS6142: Module './pages/dashboard/AnalyticsPage' was resolved to 'D:/Vayu/AVBC-Boys/src/pages/dashboard/AnalyticsPage.tsx', but '--jsx' is not set.
+src/App.tsx(22,26): error TS6142: Module './pages/dashboard/SettingsPage' was resolved to 'D:/Vayu/AVBC-Boys/src/pages/dashboard/SettingsPage.tsx', but '--jsx' is not set.
+src/App.tsx(29,32): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(30,10): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(35,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(36,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(36,32): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(37,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(37,37): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(38,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(38,40): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(39,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(39,47): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(40,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(40,44): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(41,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(41,41): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(41,57): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(42,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(42,31): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(43,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(43,36): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(44,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(44,41): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(45,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(45,45): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(46,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(46,37): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(47,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(47,41): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(48,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(48,39): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(49,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(49,40): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(50,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(50,42): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(51,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(51,41): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(53,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(53,32): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(59,3): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(60,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(61,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(62,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(63,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(64,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/App.tsx(65,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(4,25): error TS2307: Cannot find module '@/contexts/AuthContext' or its corresponding type declarations.
+src/components/dashboard/DashboardLayout.tsx(5,24): error TS2307: Cannot find module '@/components/LiveTicker' or its corresponding type declarations.
+src/components/dashboard/DashboardLayout.tsx(6,36): error TS2307: Cannot find module '@/hooks/useSocketSimulator' or its corresponding type declarations.
+src/components/dashboard/DashboardLayout.tsx(50,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(51,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(52,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(54,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(56,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(57,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(58,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(62,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(64,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(66,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(71,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(72,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(73,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(74,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(75,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(77,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(81,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(87,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(92,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(93,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(95,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(97,30): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(104,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(105,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(106,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(107,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(108,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(109,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(112,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(113,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(114,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(120,25): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(123,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(125,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(126,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(127,30): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(127,48): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(129,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(130,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(132,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(133,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(134,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(135,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(138,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(139,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(140,41): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(143,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(144,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(145,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(150,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/components/dashboard/DashboardLayout.tsx(151,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.

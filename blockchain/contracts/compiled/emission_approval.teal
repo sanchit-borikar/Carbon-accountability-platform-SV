@@ -1,0 +1,104 @@
+#pragma version 8
+txn ApplicationID
+int 0
+==
+bnz main_l14
+txn OnCompletion
+int DeleteApplication
+==
+bnz main_l13
+txn OnCompletion
+int UpdateApplication
+==
+bnz main_l12
+txna ApplicationArgs 0
+byte "record"
+==
+bnz main_l7
+txna ApplicationArgs 0
+byte "stats"
+==
+bnz main_l6
+err
+main_l6:
+byte "records="
+byte "total_records"
+app_global_get
+itob
+concat
+log
+byte "violations="
+byte "total_violations"
+app_global_get
+itob
+concat
+log
+int 1
+return
+main_l7:
+txn NumAppArgs
+int 10
+==
+assert
+byte "total_records"
+byte "total_records"
+app_global_get
+int 1
++
+app_global_put
+txna ApplicationArgs 6
+byte "1"
+==
+txna ApplicationArgs 7
+byte "1"
+==
+||
+bnz main_l11
+main_l8:
+txna ApplicationArgs 9
+byte "1"
+==
+bnz main_l10
+main_l9:
+int 1
+return
+main_l10:
+byte "total_anomalies"
+byte "total_anomalies"
+app_global_get
+int 1
++
+app_global_put
+b main_l9
+main_l11:
+byte "total_violations"
+byte "total_violations"
+app_global_get
+int 1
++
+app_global_put
+b main_l8
+main_l12:
+int 0
+return
+main_l13:
+int 0
+return
+main_l14:
+byte "total_records"
+int 0
+app_global_put
+byte "total_violations"
+int 0
+app_global_put
+byte "total_anomalies"
+int 0
+app_global_put
+byte "contract_version"
+byte "VayuDrishti-1.0"
+app_global_put
+byte "platform"
+byte "Carbon Intelligence"
+app_global_put
+int 1
+return

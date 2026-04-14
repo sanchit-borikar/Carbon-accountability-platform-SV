@@ -11,3 +11,10 @@ ml/scalers/
 .idea/
 .vscode/
 *.log
+.venv/
+node_modules/
+frontend/dist/
+frontend/node_modules/
+.vite/
+*.pt
+*.pkl
